@@ -1,10 +1,10 @@
 import openpyxl,os,docx,re
 
-os.chdir(r'C:\Users\MYUSERNAME\OneDrive\Documents\Programming\ChemInv')
+os.chdir(r'C:\PATH')
 
-wb = openpyxl.load_workbook('cheminv.xlsx')
+wb = openpyxl.load_workbook('example.xlsx')
 sheet = wb.get_sheet_by_name('Sheet1')
-doc = docx.Document('ChemPurchaseForm_.docx')
+doc = docx.Document('example.docx')
 fillObj = ('AAAA','BBBB','CCCC','DDDD')
 
 for a in range(1,61):
@@ -14,4 +14,4 @@ for a in range(1,61):
             inputRegex = re.compile(fillObj[x])
             inputRegex.sub(fill,doc)
 
-        doc.save('ChemPurcaseForm_' + fill + '.docx')
+        doc.save('example_' + fill + '.docx')
