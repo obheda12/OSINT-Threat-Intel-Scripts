@@ -1,22 +1,29 @@
 #Welcome to the Naviscraper
-print(""" 
- _____       _             _   _             _                                    
-/  ___|     | |           | \ | |           (_)                                   
-\ `--.  __ _| | ___  ___  |  \| | __ ___   ___ ___  ___ _ __ __ _ _ __   ___ _ __ 
+print("""
+ _____       _             _   _             _
+/  ___|     | |           | \ | |           (_)
+\ `--.  __ _| | ___  ___  |  \| | __ ___   ___ ___  ___ _ __ __ _ _ __   ___ _ __
  `--. \/ _` | |/ _ \/ __| | . ` |/ _` \ \ / / / __|/ __| '__/ _` | '_ \ / _ \ '__|
-/\__/ / (_| | |  __/\__ \ | |\  | (_| |\ V /| \__ \ (__| | | (_| | |_) |  __/ |   
-\____/ \__,_|_|\___||___/ \_| \_/\__,_| \_/ |_|___/\___|_|  \__,_| .__/ \___|_|   
-                                                                 | |              
-                                                                 |_|              
+/\__/ / (_| | |  __/\__ \ | |\  | (_| |\ V /| \__ \ (__| | | (_| | |_) |  __/ |
+\____/ \__,_|_|\___||___/ \_| \_/\__,_| \_/ |_|___/\___|_|  \__,_| .__/ \___|_|
+                                                                 | |
+                                                                 |_|
 """)
 
-print("""The Sales Naviscraper utilizes LinkedIn Sales Navigator and the 
-'Sales Navigator Search Export' phantom from Phantombuster to scrape LinkedIn Profiles
-to be used in Open Source Intelligence Gathering activities such as email guessing. 
+print("""
 
-The Naviscraper can only scrape 2,500 profiles at a time. In order to obtain over 
-2,500 results, the usage of filtering is required. Filtering capabilities are built 
-into the scraper for clients larger than 2,500 profile results. 
+Author: Omar Bheda
+Version: 1.0
+Last Updated: 2/11/2020
+
+The Sales Naviscraper utilizes LinkedIn Sales Navigator and the
+'Sales Navigator Search Export' phantom from Phantombuster to scrape LinkedIn Profiles
+to be used in Open Source Intelligence Gathering activities such as email guessing.
+
+The Naviscraper can only scrape 2,500 profiles at a time. In order to obtain over
+2,500 results, the usage of filtering is required. Filtering capabilities are built
+into the scraper for clients larger than 2,500 profile results.
+
 """)
 
 #Drivers for Chrome Headless Browser
@@ -26,18 +33,18 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import ElementClickInterceptedException
-driver = webdriver.Chrome('../Sales Naviscraper/Naviscraper Requirements - MacOS/chromedriver')
+driver = webdriver.Chrome('.PATH/TO/CHROMEDRIVER)
 driver.get('https://linkedin.com/sales')
 
 #---Login into Sales Navigator---
 
 #Username Input
 username = driver.find_element_by_id('username')
-username.send_keys('sarahweldman9@gmail.com')
+username.send_keys('*REDACTED*')
 
 #Password Input
 password = driver.find_element_by_id('password')
-password.send_keys("LinkedInScrapeyScrapery2020!")
+password.send_keys("*REDACTED*")
 
 #Logon
 log_in_button = driver.find_element_by_xpath('//*[@type="submit"]')
@@ -590,13 +597,13 @@ current_date = (time.strftime("%m/%d/%Y"))
 results_name_string = search_string + " - Employees - " + current_date
 
 #Launch Sales Navigator Scrape
-url = "https://phantombuster.com/api/v1/agent/6026204231587795/launch"
+url = "*REDACTED*"
 
 querystring = {"argument":"{ \"sessionCookie\": \""+actual_session_cookie+"\", \t\"searches\": \""+current_address+"\", \t\"csvName\": \""+results_name_string+"\",  \"removeDuplicateProfiles\": true }"}
 
 headers = {
     'accept': "application/json",
-    'x-phantombuster-key-1': "BbkdUE4kB2seLtijMOqYBwRtIQQE3Eik9khfW343CEI"
+    'x-phantombuster-key-1': "*REDACTED*"
     }
 
 response = requests.request("POST", url, headers=headers, params=querystring)
@@ -607,11 +614,11 @@ print("Beginning Scraping...")
 #Sales Navigator Abort
 abort_input = input("Would you like to abort? ('Y' to abort or 'N' to continue scraping)")
 if abort_input == 'Y' or abort_input =='y':
-    url = "https://phantombuster.com/api/v1/agent/id/abort"
+    url = "*REDACTED*"
 
     headers = {
         'accept': "application/json",
-        'x-phantombuster-key-1': "BbkdUE4kB2seLtijMOqYBwRtIQQE3Eik9khfW343CEI"
+        'x-phantombuster-key-1': "*REDACTED*"
     }
 
     response = requests.request("POST", url, headers=headers)
